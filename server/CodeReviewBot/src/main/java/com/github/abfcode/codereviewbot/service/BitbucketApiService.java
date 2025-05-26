@@ -1,5 +1,6 @@
 package com.github.abfcode.codereviewbot.service;
 
+import com.github.abfcode.codereviewbot.dto.CommitListDTO;
 import com.github.abfcode.codereviewbot.dto.PullRequestDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -39,6 +40,28 @@ public class BitbucketApiService {
             log.error("Error fetching PR details for ID {}: {}", pullRequestId, e.getMessage(), e);
             return null;
         }
+    }
+
+    public CommitListDTO getCommits(String commitsUrl) {
+        if(commitsUrl == null || commitsUrl.isBlank()) {
+            log.warn("Commits URL is null or blank. Skipping.");
+            return null;
+        }
+
+        log.info("Getting commits from Bitbucket API at {}", commitsUrl);
+        try{
+
+            CommitListDTO commits =  restClient.get()
+                    .uri(commitsUrl)
+                    .retrieve()
+                    .body(CommitListDTO.class);
+            return commits;
+        }
+        catch (RestClientException e) {
+            log.error("Error fetching commits: {}", e.getMessage(), e);
+            return null;
+        }
+
     }
 
 }
