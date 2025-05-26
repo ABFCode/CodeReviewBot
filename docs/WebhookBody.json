@@ -1,0 +1,250 @@
+{
+  "repository": {
+    "type": "repository",
+    "full_name": "[WORKSPACE_SLUG]/[REPO_NAME]",
+    "links": {
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/repositories/[WORKSPACE_SLUG]/[REPO_NAME]"
+      },
+      "html": { "href": "https://bitbucket.org/[WORKSPACE_SLUG]/[REPO_NAME]" },
+      "avatar": {
+        "href": "https://bytebucket.org/ravatar/%7B[REDACTED_REPO_AVATAR_UUID]%7D?ts=default"
+      }
+    },
+    "name": "[REPO_NAME]",
+    "scm": "git",
+    "website": null,
+    "owner": {
+      "display_name": "[WORKSPACE_DISPLAY_NAME]",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/workspaces/%7B[REDACTED_WORKSPACE_OWNER_UUID]%7D"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/[WORKSPACE_SLUG]/avatar/"
+        },
+        "html": {
+          "href": "https://bitbucket.org/%7B[REDACTED_WORKSPACE_OWNER_UUID]%7D/"
+        }
+      },
+      "type": "team",
+      "uuid": "{[REDACTED_WORKSPACE_OWNER_UUID]}",
+      "username": "[WORKSPACE_SLUG]"
+    },
+    "workspace": {
+      "type": "workspace",
+      "uuid": "{[REDACTED_WORKSPACE_UUID]}",
+      "name": "[WORKSPACE_DISPLAY_NAME]",
+      "slug": "[WORKSPACE_SLUG]",
+      "links": {
+        "avatar": {
+          "href": "https://bitbucket.org/workspaces/[WORKSPACE_SLUG]/avatar/?ts=[TIMESTAMP]"
+        },
+        "html": { "href": "https://bitbucket.org/[WORKSPACE_SLUG]/" },
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/workspaces/[WORKSPACE_SLUG]"
+        }
+      }
+    },
+    "is_private": true,
+    "project": {
+      "type": "project",
+      "key": "[PROJECT_KEY]",
+      "uuid": "{[REDACTED_PROJECT_UUID]}",
+      "name": "[PROJECT_NAME]",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/workspaces/[WORKSPACE_SLUG]/projects/[PROJECT_KEY]"
+        },
+        "html": {
+          "href": "https://bitbucket.org/[WORKSPACE_SLUG]/workspace/projects/[PROJECT_KEY]"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/[WORKSPACE_SLUG]/workspace/projects/[PROJECT_KEY]/avatar/32?ts=[TIMESTAMP]"
+        }
+      }
+    },
+    "uuid": "{[REDACTED_REPO_UUID]}",
+    "parent": null
+  },
+  "actor": {
+    "display_name": "[USER_DISPLAY_NAME]",
+    "links": {
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/users/%7B[REDACTED_USER_UUID]%7D"
+      },
+      "avatar": {
+        "href": "https://secure.gravatar.com/avatar/[REDACTED_AVATAR_HASH]?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FUU-0.png"
+      },
+      "html": {
+        "href": "https://bitbucket.org/%7B[REDACTED_USER_UUID]%7D/"
+      }
+    },
+    "type": "user",
+    "uuid": "{[REDACTED_USER_UUID]}",
+    "account_id": "[REDACTED_ACCOUNT_ID]",
+    "nickname": "[USER_NICKNAME]"
+  },
+  "pullrequest": {
+    "comment_count": 0,
+    "task_count": 0,
+    "type": "pullrequest",
+    "id": 2,
+    "title": "[GENERIC_PR_TITLE_DESCRIPTION]",
+    "description": "[GENERIC_PR_TITLE_DESCRIPTION]",
+    "rendered": {
+      "title": {
+        "type": "rendered",
+        "raw": "[GENERIC_PR_TITLE_DESCRIPTION]",
+        "markup": "markdown",
+        "html": "<p>[GENERIC_PR_TITLE_DESCRIPTION]</p>"
+      },
+      "description": {
+        "type": "rendered",
+        "raw": "[GENERIC_PR_TITLE_DESCRIPTION]",
+        "markup": "markdown",
+        "html": "<p>[GENERIC_PR_TITLE_DESCRIPTION]</p>"
+      }
+    },
+    "state": "OPEN",
+    "draft": false,
+    "merge_commit": null,
+    "close_source_branch": true,
+    "closed_by": null,
+    "author": {
+      "display_name": "[USER_DISPLAY_NAME]",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/users/%7B[REDACTED_USER_UUID]%7D"
+        },
+        "avatar": {
+          "href": "https://secure.gravatar.com/avatar/[REDACTED_AVATAR_HASH]?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FUU-0.png"
+        },
+        "html": {
+          "href": "https://bitbucket.org/%7B[REDACTED_USER_UUID]%7D/"
+        }
+      },
+      "type": "user",
+      "uuid": "{[REDACTED_USER_UUID]}",
+      "account_id": "[REDACTED_ACCOUNT_ID]",
+      "nickname": "[USER_NICKNAME]"
+    },
+    "reason": "",
+    "created_on": "2025-05-26T01:02:20.162015+00:00",
+    "updated_on": "2025-05-26T01:02:21.057626+00:00",
+    "destination": {
+      "branch": { "name": "[TARGET_BRANCH_NAME]" },
+      "commit": {
+        "hash": "[REDACTED_COMMIT_HASH_DEST]",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/repositories/[WORKSPACE_SLUG]/[REPO_NAME]/commit/[REDACTED_COMMIT_HASH_DEST]"
+          },
+          "html": {
+            "href": "https://bitbucket.org/[WORKSPACE_SLUG]/[REPO_NAME]/commits/[REDACTED_COMMIT_HASH_DEST]"
+          }
+        },
+        "type": "commit"
+      },
+      "repository": {
+        "type": "repository",
+        "full_name": "[WORKSPACE_SLUG]/[REPO_NAME]",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/repositories/[WORKSPACE_SLUG]/[REPO_NAME]"
+          },
+          "html": {
+            "href": "https://bitbucket.org/[WORKSPACE_SLUG]/[REPO_NAME]"
+          },
+          "avatar": {
+            "href": "https://bytebucket.org/ravatar/%7B[REDACTED_REPO_AVATAR_UUID]%7D?ts=default"
+          }
+        },
+        "name": "[REPO_NAME]",
+        "uuid": "{[REDACTED_REPO_UUID]}"
+      }
+    },
+    "source": {
+      "branch": {
+        "name": "[USER_SLUG]/[FEATURE_BRANCH_NAME]",
+        "links": {},
+        "sync_strategies": ["merge_commit", "rebase"]
+      },
+      "commit": {
+        "hash": "[REDACTED_COMMIT_HASH_SOURCE]",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/repositories/[WORKSPACE_SLUG]/[REPO_NAME]/commit/[REDACTED_COMMIT_HASH_SOURCE]"
+          },
+          "html": {
+            "href": "https://bitbucket.org/[WORKSPACE_SLUG]/[REPO_NAME]/commits/[REDACTED_COMMIT_HASH_SOURCE]"
+          }
+        },
+        "type": "commit"
+      },
+      "repository": {
+        "type": "repository",
+        "full_name": "[WORKSPACE_SLUG]/[REPO_NAME]",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/repositories/[WORKSPACE_SLUG]/[REPO_NAME]"
+          },
+          "html": {
+            "href": "https://bitbucket.org/[WORKSPACE_SLUG]/[REPO_NAME]"
+          },
+          "avatar": {
+            "href": "https://bytebucket.org/ravatar/%7B[REDACTED_REPO_AVATAR_UUID]%7D?ts=default"
+          }
+        },
+        "name": "[REPO_NAME]",
+        "uuid": "{[REDACTED_REPO_UUID]}"
+      }
+    },
+    "reviewers": [],
+    "participants": [],
+    "links": {
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/repositories/[WORKSPACE_SLUG]/[REPO_NAME]/pullrequests/2"
+      },
+      "html": {
+        "href": "https://bitbucket.org/[WORKSPACE_SLUG]/[REPO_NAME]/pull-requests/2"
+      },
+      "commits": {
+        "href": "https://api.bitbucket.org/2.0/repositories/[WORKSPACE_SLUG]/[REPO_NAME]/pullrequests/2/commits"
+      },
+      "approve": {
+        "href": "https://api.bitbucket.org/2.0/repositories/[WORKSPACE_SLUG]/[REPO_NAME]/pullrequests/2/approve"
+      },
+      "request-changes": {
+        "href": "https://api.bitbucket.org/2.0/repositories/[WORKSPACE_SLUG]/[REPO_NAME]/pullrequests/2/request-changes"
+      },
+      "diff": {
+        "href": "https://api.bitbucket.org/2.0/repositories/[WORKSPACE_SLUG]/[REPO_NAME]/diff/[WORKSPACE_SLUG]/[REPO_NAME]:[REDACTED_COMMIT_HASH_SOURCE]%0D[REDACTED_COMMIT_HASH_DEST]?from_pullrequest_id=2&topic=true"
+      },
+      "diffstat": {
+        "href": "https://api.bitbucket.org/2.0/repositories/[WORKSPACE_SLUG]/[REPO_NAME]/diffstat/[WORKSPACE_SLUG]/[REPO_NAME]:[REDACTED_COMMIT_HASH_SOURCE]%0D[REDACTED_COMMIT_HASH_DEST]?from_pullrequest_id=2&topic=true"
+      },
+      "comments": {
+        "href": "https://api.bitbucket.org/2.0/repositories/[WORKSPACE_SLUG]/[REPO_NAME]/pullrequests/2/comments"
+      },
+      "activity": {
+        "href": "https://api.bitbucket.org/2.0/repositories/[WORKSPACE_SLUG]/[REPO_NAME]/pullrequests/2/activity"
+      },
+      "merge": {
+        "href": "https://api.bitbucket.org/2.0/repositories/[WORKSPACE_SLUG]/[REPO_NAME]/pullrequests/2/merge"
+      },
+      "decline": {
+        "href": "https://api.bitbucket.org/2.0/repositories/[WORKSPACE_SLUG]/[REPO_NAME]/pullrequests/2/decline"
+      },
+      "statuses": {
+        "href": "https://api.bitbucket.org/2.0/repositories/[WORKSPACE_SLUG]/[REPO_NAME]/pullrequests/2/statuses"
+      }
+    },
+    "summary": {
+      "type": "rendered",
+      "raw": "[GENERIC_PR_TITLE_DESCRIPTION]",
+      "markup": "markdown",
+      "html": "<p>[GENERIC_PR_TITLE_DESCRIPTION]</p>"
+    }
+  }
+}

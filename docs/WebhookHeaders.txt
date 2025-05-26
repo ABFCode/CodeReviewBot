@@ -1,0 +1,19 @@
+: host: [REDACTED_NGROK_SUBDOMAIN].ngrok-free.app
+: user-agent: Bitbucket-Webhooks/2.0
+: content-length: 6442
+: accept: */*
+: content-type: application/json
+: traceparent: 00-[REDACTED_TRACE_ID]-[REDACTED_PARENT_SPAN_ID]-00
+: x-attempt-number: 1
+: x-b3-parentspanid: [REDACTED_PARENT_SPAN_ID]
+: x-b3-sampled: 0
+: x-b3-spanid: [REDACTED_SPAN_ID]
+: x-b3-traceid: [REDACTED_TRACE_ID]
+: x-event-key: pullrequest:created
+: x-event-time: Mon, 26 May 2025 01:02:21 GMT
+: x-forwarded-for: [REDACTED_IP_ADDRESS]
+: x-forwarded-host: [REDACTED_NGROK_SUBDOMAIN].ngrok-free.app
+: x-forwarded-proto: https
+: x-hook-uuid: [REDACTED_HOOK_UUID]
+: x-request-uuid: [REDACTED_REQUEST_UUID]
+: accept-encoding: gzip
