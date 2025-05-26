@@ -1,5 +1,6 @@
 package com.github.abfcode.codereviewbot.service;
 
+import com.github.abfcode.codereviewbot.dto.PullRequestDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,23 +21,23 @@ public class BitbucketApiService {
     @Value("${bitbucket.reposlug}")
     private String repo;
 
-    public String getRawPRDetails(String pullRequestId) {
+    public PullRequestDTO getPullRequestDetails(String pullRequestId) {
         String path = String.format("/repositories/%s/%s/pullrequests/%s", workspace, repo, pullRequestId);
 
         log.info("Getting raw PR details from Bitbucket API at {}", path);
         log.info("Using workspace {}, repo {}", workspace, repo);
 
         try{
-            String responseBody = restClient.get()
+            PullRequestDTO pullRequest = restClient.get()
                     .uri(path)
                     .retrieve()
-                    .body(String.class);
+                    .body(PullRequestDTO.class);
             log.info("Got raw PR details from Bitbucket API");
-            return responseBody;
+            return pullRequest;
         }
         catch (RestClientException e) {
             log.error("Error fetching PR details for ID {}: {}", pullRequestId, e.getMessage(), e);
-            return "Error: Could not fetch PR details." + e.getMessage();
+            return null;
         }
     }
 

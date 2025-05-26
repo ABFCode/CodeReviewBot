@@ -1,5 +1,6 @@
 package com.github.abfcode.codereviewbot;
 
+import com.github.abfcode.codereviewbot.dto.PullRequestDTO;
 import com.github.abfcode.codereviewbot.service.BitbucketApiService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -31,8 +32,14 @@ public class CodeReviewBotApplication implements CommandLineRunner {
         }
 
         log.info("Attempting to fetch PR details for ID {}", testPullRequestId);
-        String response = bitbucketApiService.getRawPRDetails(testPullRequestId);
-        log.info("\n--- RAW BITBUCKET PULL REQUEST DETAILS ---\n{}", response);
-        log.info("--- END OF RAW RESPONSE ---");
+        PullRequestDTO pullRequest = bitbucketApiService.getPullRequestDetails(testPullRequestId);
+
+        if (pullRequest != null) {
+            log.info("\n--- DESERIALIZED PULL REQUEST DTO ---\n{}", pullRequest.toString());
+            log.info("PR Title: {}", pullRequest.title());
+            log.info("PR Author: {}", pullRequest.author() != null ? pullRequest.author().displayName() : "N/A");
+
+        }
+        log.info("--- END OF DTO TEST ---");
     }
 }
