@@ -3,6 +3,10 @@ import { Construct } from "constructs";
 import * as sqs from "aws-cdk-lib/aws-sqs";
 import * as apigw from "aws-cdk-lib/aws-apigateway";
 import * as iam from "aws-cdk-lib/aws-iam";
+import * as lambda from "aws-cdk-lib/aws-lambda";
+import * as path from "path";
+import { SqsEventSource } from "aws-cdk-lib/aws-lambda-event-sources";
+import { Timeout } from "aws-cdk-lib/aws-stepfunctions";
 
 export class CdkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -81,5 +85,44 @@ export class CdkStack extends cdk.Stack {
       value: restApi.urlForPath(webhookResource.path),
       description: "The URL of the API Gateway webhook endpoint",
     });
+
+    const sqsProcessorLambdaRole = new iam.Role(
+      this,
+      "SqsProcessorLambdaRole",
+      {
+        assumedBy: new iam.ServicePrincipal("lambda.amazonaws.com"),
+      }
+    );
+
+    sqsProcessorLambdaRole.addManagedPolicy(
+      iam.ManagedPolicy.fromAwsManagedPolicyName(
+        "service-role/AWSLambdaBasicExecutionRole"
+      )
+    );
+
+    prEventsQueue.grantConsumeMessages(sqsProcessorLambdaRole);
+
+    const sqsProcessorLambda = new lambda.Function(this, "SqsProcessorLambda", {
+      runtime: lambda.Runtime.JAVA_17,
+      code: lambda.Code.fromAsset(
+        path.join(
+          __dirname,
+          "../../lambda-java/target/pr-reviewer-lambda-1.0.0.jar"
+        )
+      ),
+      handler: "com.github.abfcode.prreviewer.SqsMessageHandler::handleRequest",
+      role: sqsProcessorLambdaRole,
+      memorySize: 512,
+      timeout: cdk.Duration.seconds(30),
+      environment: {
+        SQS_QUEUE_URL: prEventsQueue.queueUrl,
+      },
+    });
+
+    sqsProcessorLambda.addEventSource(
+      new SqsEventSource(prEventsQueue, {
+        batchSize: 1,
+      })
+    );
   }
 }
